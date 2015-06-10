@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dwr PUBLIC
+   "-//GetAhead Limited//DTD Direct Web Remoting 1.0//EN"
+   "http://www.getahead.ltd.uk/dwr/dwr10.dtd">
+<dwr>
+<allow>
+   <create creator="new" javascript="Decision">
+   <param name="class" value="Data.Decision"/>
+   </create>
+    <create creator="new" javascript="DecisionServer">
+   <param name="class" value="Data.DecisionServer"/>
+   </create>
+   <create creator="new" javascript="ApplicationServer">
+   <param name="class" value="Data.ApplicationServer"/>
+   </create>
+   <create creator="new" javascript="StakeholderServer">
+   <param name="class" value="Data.StakeholderServer"/>
+   </create>
+    <create creator="new" javascript="QualityServer">
+   <param name="class" value="Data.QualityServer"/>
+   </create>
+    <create creator="new" javascript="AlternativeServer">
+   <param name="class" value="Data.AlternativeServer"/>
+   </create>
+    <create creator="new" javascript="PairwiseQuality">
+   <param name="class" value="Data.PairwiseQuality"/>
+   </create>
+    <create creator="new" javascript="PairwiseAlternative">
+   <param name="class" value="Data.PairwiseAlternative"/>
+   </create>
+   <create creator="new" javascript="ComputeValueScores">
+   <param name="class" value="Data.ComputeValueScores"/>
+   </create>
+   <create creator="new" javascript="WebServiceAddConcept">
+   <param name="class" value="webservice.WebServiceAddConcept"/>
+   </create>
+      <create creator="new" javascript="CallWebService">
+   <param name="class" value="webservice.CallWebService"/>
+   </create>
+    <create creator="new" javascript="Authorization">
+   <param name="class" value="webservice.Authorization"/>
+   </create>
+</allow>
+</dwr>
