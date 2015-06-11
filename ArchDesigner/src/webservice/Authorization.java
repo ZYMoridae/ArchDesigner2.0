@@ -42,7 +42,7 @@ public class Authorization
 	 	Properties prop = new Properties();
 		OutputStream output = null;
 		try {
-			output = new FileOutputStream("C:\\Users\\Justin\\workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\ArchDesigner\\Main\\config.properties");
+			output = new FileOutputStream("\\Users\\alex\\Documents\\ArchDesignerv2.0\\ArchDesigner2.0\\ArchDesigner\\WebContent\\Main\\config.properties");
 			// set the properties value
 			prop.setProperty("UserID", userid);
 			prop.setProperty("UserName", username);
@@ -66,7 +66,7 @@ public class Authorization
 		}
 		InputStream input = null;
 		try {
-			input = new FileInputStream("C:\\Users\\Justin\\workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\ArchDesigner\\Main\\config.properties");
+			input = new FileInputStream("\\Users\\alex\\Documents\\ArchDesignerv2.0\\ArchDesigner2.0\\ArchDesigner\\WebContent\\Main\\config.properties");
 			// load a properties file
 			prop.load(input);
 			// get the property value and print it out
