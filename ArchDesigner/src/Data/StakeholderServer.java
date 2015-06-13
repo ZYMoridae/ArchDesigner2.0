@@ -14,6 +14,7 @@ public class StakeholderServer
 		private static String url = "jdbc:postgresql://localhost/ArchDB";
 		private static String user = "user";
 		private static String password = "password";
+		
 		public void savestakeholder(String[] value)
 		{
 			System.out.print("add stakholder");

@@ -2,6 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ page language="java" import="java.util.ArrayList"%>
 <%@ page language="java" import="java.sql.*"%>
+<%@ page language="java" import="Data.StakeholderServer"%>
 <%try {
     Class.forName("org.postgresql.Driver");
 } catch (ClassNotFoundException e) {
@@ -198,12 +199,17 @@
 				var addstakeholder = function() {
 					var arr = [];
 					arr.push(document.getElementById('StkNameTxt').value);
+					alert(document.getElementById('StkNameTxt').value);
 					var ddl = document.getElementById('appselect');
 					var val = ddl.options[ddl.selectedIndex].value;
 					arr.push(val);
+					alert(val);
 					/* 				arr.push(document.getElementById('WeightNameTxt').value); */
 					arr.push(document.getElementById('Remarktext').value);
-					StakeholderServer.savestakeholder(arr, ar);
+					alert(document.getElementById('Remarktext').value);
+                    //StakeholderServer.savestakeholder(arr);
+                   StakeholderServer.test();
+					alert('final');
 				}
 				var ar = function() {
 					alert("Success");
