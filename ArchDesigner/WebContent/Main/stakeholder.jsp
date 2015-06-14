@@ -2,7 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ page language="java" import="java.util.ArrayList"%>
 <%@ page language="java" import="java.sql.*"%>
-<%@ page language="java" import="Data.StakeholderServer"%>
+<%@ page language="java" import="com.business.*"%>
 <%try {
     Class.forName("org.postgresql.Driver");
 } catch (ClassNotFoundException e) {
@@ -33,19 +33,9 @@
 			<br>
 			<div style="font-weight: bold; width: 300px;padding-bottom: 5px;" id="divStkList">
 				<h2>Stakeholder List</h2></div>
-			<!-- <input value="Showlist" type="button" onclick="show();"
-				style="margin-left: 400px;" /> -->
+
 			<div style="text-align: center; display: inline;" id="divStktable">
-<!-- 
-				<table id="myTable">
-					<tbody>
-						<tr>
-							<td>Stakeholder Name</td>
-							<td>Application Name</td>
-							<td>Remark</td>
-						</tr>
-					</tbody>
-				</table> -->
+
 				<%
 			try {
 				    Class.forName("org.postgresql.Driver");
@@ -93,28 +83,9 @@
             out.println( "<h1>exception: "+e+e.getMessage()+"</h1>" );
         }
 %>
-				<!-- od <script type="text/javascript">
-					/*
-					read the col and row and add to table
-					 */
-					var show = function() {
-
-						StakeholderServer.GetStakeholderValue(get);
-					}
-					var get = function(a) {
-						var b = a;
-						for (var i = 0; i < b.length; i++) {
-
-							var tr = $('<tr>');
-							$('#myTable tbody').append(tr);
-							for (var j = 0; j < b[i].length; j++) {
-								tr.append('<td>' + b[i][j] + '</td>');
-							}
-						}
-					}
-				</script> -->
 			</div>
 			<br>
+			<form action="StakeholderBusiness" method="post">
 			<table id="stakeholdertable">
 				<tbody>
 					<tr>
@@ -137,7 +108,7 @@
 					</tr>
 					<tr style="margin-bottom: 5px;">
 						<td style="border: none;"><label>Application Name</label></td>
-						<td style="border: none;"><select class="form-control" id="appselect"
+						<td style="border: none;"><select class="form-control" id="appselect" name="StkApp"
 							style="width: 250px;">
 							<% 
 							try {
@@ -154,23 +125,7 @@
 					            }
 						    conn.close();
 							%>
-								<!-- <script type="text/javascript">
-									var arr = function(a) {
-										var b = a;
-										for (i = 0; i < b.length; i++) {
-											var x = document
-													.createElement("OPTION");
-											var t = document
-													.createTextNode(b[i][0]);
-											//alert(b[i][0]);
-											x.appendChild(t);
-											document
-													.getElementById("appselect")
-													.appendChild(x);
-										}
-									}
-									ApplicationServer.GetApplicationValue(arr);
-								</script> -->
+
 						</select></td>
 					</tr>
 										<tr>
@@ -179,7 +134,7 @@
 					</tr>
 					<tr>
 						<td style="border: none;"><label>Remark</label></td>
-						<td style="border: none;"><textarea class="form-control" id="Remarktext" rows="4"
+						<td style="border: none;"><textarea class="form-control" id="Remarktext" name="StkRemark" rows="4"
 								cols="50" style="width: 250px; height: 150px;"> 
 					</textarea></td>
 					</tr>
@@ -190,11 +145,14 @@
 					<tr>
 						<td style="border: none;"></td>
 						<td style="border: none;"><input class="btn btn-info" value="Add New"
-							type="button" onclick="addstakeholder()"
+							type="submit"
 							/></td>
 					</tr>
 				</tbody>
 			</table>
+			</form>
+
+
 			<script type="text/javascript">
 				var addstakeholder = function() {
 					var arr = [];
@@ -208,7 +166,6 @@
 					arr.push(document.getElementById('Remarktext').value);
 					alert(document.getElementById('Remarktext').value);
                     //StakeholderServer.savestakeholder(arr);
-                   StakeholderServer.test();
 					alert('final');
 				}
 				var ar = function() {
